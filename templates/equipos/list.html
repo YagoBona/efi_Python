@@ -1,0 +1,11 @@
+<!-- templates/modelos/list.html -->
+{% extends 'template_base.html' %}
+
+{% block content %}
+<h1>Lista de Modelos</h1>
+<ul>
+    {% for modelo in modelos %}
+    <li>{{ modelo.nombre }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Añadir Equipo{% endblock %}
+
+{% block content %}
+    <h1>Añadir Equipo</h1>
+    <form action="{{ url_for('create_equipo') }}" method="POST">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <select class="form-control" id="modelo" name="modelo_id">
+                {% for modelo in modelos %}
+                <option value="{{ modelo.id }}">{{ modelo.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <select class="form-control" id="categoria" name="categoria_id">
+                {% for categoria in categorias %}
+                <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="costo">Costo</label>
+            <input type="number" class="form-control" id="costo" name="costo">
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+{% endblock %}

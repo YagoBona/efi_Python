@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Equipo{% endblock %}
+
+{% block content %}
+    <h1>Eliminar Equipo</h1>
+    <p>¿Estás seguro de que deseas eliminar el equipo <strong>{{ equipo.nombre }}</strong>?</p>
+    <form action="{{ url_for('delete_equipo', id=equipo.id) }}" method="POST">
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{{ url_for('list_equipos') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
